@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\workListController;
+use App\Http\Controllers\WorksUrlController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/works', [workListController::class, "index"]);
+// Route::get('/works', [workListController::class, "index"]);
+
+Route::apiResource("works", workListController::class);
+Route::apiResource("workurl", WorksUrlController::class);
